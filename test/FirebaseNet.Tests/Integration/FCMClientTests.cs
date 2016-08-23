@@ -12,6 +12,10 @@ namespace FirebaseNet.Tests.Integration
 {
     public class FCMClientTests
     {
+
+        //place your server api key here for testing purposes
+        private const string ServerApiKey = "...";
+
         [Fact]
         public async Task Given_an_invalid_server_key_THEN_I_must_get_an_FCM_exception()
         {
@@ -36,7 +40,7 @@ namespace FirebaseNet.Tests.Integration
         [Fact]
         public async Task Given_a_valid_server_key_AND_a_valid_topic_message_THEN_I_must_get_a_valid_response()
         {
-            FCMClient client = new FCMClient("AIzaSyDZsZrrngNYCm2IPCsebgN6hVfTdVKxLGM");
+            FCMClient client = new FCMClient(ServerApiKey);
 
             var message = new Message()
             {
@@ -58,7 +62,7 @@ namespace FirebaseNet.Tests.Integration
         [Fact]
         public async Task Given_a_valid_server_key_AND_a_valid_downstream_message_THEN_I_must_get_a_valid_response()
         {
-            FCMClient client = new FCMClient("AIzaSyD4FQdtb9R603evuoJPkinK5xzxQ6rnhXs");
+            FCMClient client = new FCMClient(ServerApiKey);
 
             var message = new Message()
             {
