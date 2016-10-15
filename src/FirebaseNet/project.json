@@ -1,7 +1,17 @@
 {
   "title": "FirebaseNet",
   "version": "1.0.0-*",
+  "authors": [ "tiagomtotti" ],
 
+  "packOptions": {
+    "licenseUrl": "https://github.com/tiagomtotti/firebaseNet/blob/master/LICENSE",
+    "projectUrl": "https://github.com/tiagomtotti/firebaseNet",
+    "requireLicenseAcceptance": false,
+    "tags": [ "FCM", "Firebase", "Cloud", "Messaging", "C#" ]
+
+  },
+  "description": "Client library for Firebase Cloud Messaging (FCM) written in C# / .NET",
+  
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "Newtonsoft.Json": "9.0.1"
