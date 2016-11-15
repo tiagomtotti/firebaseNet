@@ -87,7 +87,7 @@ var result = await client.SendMessageAsync(message);
 
 ### Messages with both notification and data payloads
 
-App behavior when receiving messages that include both notification and data payloads depends on whether the app is in the background or the foreground—essentially, whether or not it is active at the time of receipt.
+App behavior when receiving messages that include both notification and data payloads depends on whether the app is in the background or the foregroundâ€”essentially, whether or not it is active at the time of receipt.
 - **When in the background**, apps receive the notification payload in the notification tray, and only handle the data payload when the user taps on the notification.
 - **When in the foreground**, your app receives a message object with both payloads available.
 
@@ -123,6 +123,6 @@ More details about FCM messages can be found in the product documentation at:
 
 You can find more samples within the project integration tests. Take a look at the `test/FirebaseNet.Tests/Interation` folder.
 
-### Contributing
+## Contributing
 
 You know how to do it! Fork it, branch it, change it, commit it, and pull-request it. We are passionate about improving this project, and glad to accept help to make it better.
