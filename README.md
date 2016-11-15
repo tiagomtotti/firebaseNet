@@ -3,7 +3,7 @@
 # firebaseNet
 Client library for Firebase Cloud Messaging (FCM) written in C# / .NET.
 
-This library provides a simple way in pure C# to send messages using the FCM HTTP connection servers. All JSON serialization/deserialization and HHTP related stuff is done automatically for you =).
+This library provides a simple way in pure C# to send messages using the FCM HTTP connection servers. All JSON serialization/deserialization and HTTP related stuff is done automatically for you =).
 
 ## Sending your first message
 
