@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD35765E-3A56-4510-BA2E-49C69A8B8B76}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FirebaseNet", "src\FirebaseNet\FirebaseNet.xproj", "{2A4DFD2D-AB51-421D-A416-87FFF9D1376E}"

@@ -1,6 +1,6 @@
 {
   "title": "FirebaseNet",
-  "version": "1.0.0-*",
+  "version": "1.0.1-*",
   "authors": [ "tiagomtotti" ],
 
   "packOptions": {
@@ -20,6 +20,8 @@
   "frameworks": {
     "netcoreapp1.0": {
       "imports": "dnxcore50"
-    }
+    },
+    "net45": {},
+    "net46": {}
   }
-}
+ }
