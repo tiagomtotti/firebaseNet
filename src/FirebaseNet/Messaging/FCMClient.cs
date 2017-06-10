@@ -41,40 +41,38 @@ namespace FirebaseNet.Messaging
 
             var serializedMessage = _serializer.Serialize(message);
 
-            using (var client = HttpClient)
+            var request = new HttpRequestMessage(HttpMethod.Post, FCM_URI);
+            request.Headers.TryAddWithoutValidation("Authorization", "key=" + _serverKey);
+            request.Content = new StringContent(serializedMessage, Encoding.UTF8, "application/json");
+
+            var client = HttpClient;
+            var result = await client.SendAsync(request);
+
+
+            if (result.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                var request = new HttpRequestMessage(HttpMethod.Post, FCM_URI);
-                request.Headers.TryAddWithoutValidation("Authorization", "key=" + _serverKey);
-                request.Content = new StringContent(serializedMessage, Encoding.UTF8, "application/json");
 
-                var result = await client.SendAsync(request);
-
-
-                if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-
-                    if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                    {
-                        throw new FCMUnauthorizedException();
-                    }
-
-
-                    //TODO: handle retry-timeout for 500 messages
-                    var errorMessage = await result.Content.ReadAsStringAsync();
-                    throw new FCMException(result.StatusCode, errorMessage);
+                    throw new FCMUnauthorizedException();
                 }
 
-                var content = await result.Content.ReadAsStringAsync();
 
-                //if contains a multicast_id field, it's a downstream message
-                if (content.Contains("multicast_id"))
-                {
-                    return _serializer.Deserialize<DownstreamMessageResponse>(content);
-                }
-
-                //otherwhise it's a topic message
-                return _serializer.Deserialize<TopicMessageResponse>(content);
+                //TODO: handle retry-timeout for 500 messages
+                var errorMessage = await result.Content.ReadAsStringAsync();
+                throw new FCMException(result.StatusCode, errorMessage);
             }
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            //if contains a multicast_id field, it's a downstream message
+            if (content.Contains("multicast_id"))
+            {
+                return _serializer.Deserialize<DownstreamMessageResponse>(content);
+            }
+
+            //otherwhise it's a topic message
+            return _serializer.Deserialize<TopicMessageResponse>(content);
 
         }
 
@@ -84,15 +82,17 @@ namespace FirebaseNet.Messaging
         /// </summary>
         public bool TestMode { get; set; }
 
-        private HttpClient _httpClient;
+        private static readonly HttpClient _httpClient = new HttpClient();
         /// <summary>
         /// Gets or sets the HttpClient used by the FCMClient.
         /// Aid for test purposes.
         /// </summary>
         internal HttpClient HttpClient
         {
-            get { return _httpClient ?? new HttpClient(); }
-            set { _httpClient = value; }
+            get
+            {
+                return _httpClient;
+            }
         }
 
     }
