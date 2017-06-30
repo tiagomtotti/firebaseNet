@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,7 @@ namespace FirebaseNet.Messaging
         /// open a network connection to your server.
         /// </summary>
         [JsonProperty(PropertyName = "priority")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public MessagePriority? Priority { get; set; }
 
         /// <summary>
