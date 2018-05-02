@@ -78,5 +78,11 @@ namespace FirebaseNet.Messaging
         [JsonProperty(PropertyName = "title_loc_args")]
         public string TitleLocArgs { get; set; }
 
+
+        /// <summary>
+        /// Indicates the string value of the notification channel ID that the notification should be sent to in an Android app
+        /// </summary>
+        [JsonProperty(PropertyName = "android_channel_id")]
+        public string ChannelId { get; set; }
     }
 }
