@@ -1,29 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Client library for Firebase Cloud Messaging (FCM) written in C# / .NET</Description>
-    <AssemblyTitle>FirebaseNet</AssemblyTitle>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <Authors>tiagomtotti</Authors>
-    <TargetFrameworks>netstandard1.1</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>FirebaseNet</AssemblyName>
-    <PackageId>FirebaseNet</PackageId>
-    <PackageTags>FCM;Firebase;Cloud;Messaging;C#</PackageTags>
-    <PackageProjectUrl>https://github.com/tiagomtotti/firebaseNet</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/tiagomtotti/firebaseNet/blob/master/LICENSE</PackageLicenseUrl>
-    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <TargetFramework>netstandard1.3</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
-
-
-
-
 
 </Project>
